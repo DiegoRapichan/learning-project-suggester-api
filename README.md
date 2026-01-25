@@ -1,86 +1,95 @@
-# Learning Project Suggester API
+Learning Project Suggester API
 
-API que sugere **projetos práticos** com base no conteúdo da aula, ajudando alunos a fixarem o aprendizado e gerarem projetos reais para portfólio (GitHub).
+API que sugere projetos práticos com base no conteúdo da aula, ajudando alunos a fixarem o aprendizado e a criarem projetos reais para portfólio (GitHub).
 
-## 🎯 Objetivo
+Objetivo
 
-Um problema comum no aprendizado é:
+Um problema comum durante o aprendizado é concluir uma aula, entender o conteúdo, mas não saber como praticá-lo de forma concreta.
 
-> “Terminei a aula, entendi o conteúdo, mas não sei o que construir agora.”
+Esta API resolve esse problema sugerindo ideias de projetos práticos alinhados ao tema da aula, incentivando a aplicação imediata do conhecimento e a construção de portfólio.
 
-Esta API resolve isso sugerindo **ideias de projetos práticas**, alinhadas ao tema da aula, incentivando a aplicação imediata do conhecimento.
+Como funciona
 
----
+A API recebe o nome da aula e retorna sugestões de projetos relacionadas ao conteúdo informado, com foco em:
 
-## 🚀 Como funciona
+Fixação do aprendizado
 
-A API recebe informações sobre a aula (ex: nome da aula) e retorna sugestões de projetos relacionados, com foco em:
+Aplicação prática do conteúdo
 
-- Fixação do conteúdo
-- Aplicação prática
-- Criação de portfólio
+Criação de projetos reais para portfólio
 
-### Exemplo de entrada
+Exemplo de requisição
 
-```json
-{
-  "aula": "Introdução ao DOM"
-}
-```
-
-Exemplo de saída
+POST /suggest-projects
 
 {
-"aula": "Introdução ao DOM",
-"sugestoes": [
-{
-"nome": "Lista de Tarefas",
-"objetivo": "Manipular elementos dinamicamente no DOM",
-"conceitos": ["querySelector", "addEventListener", "classList"]
-},
-{
-"nome": "Modal Interativo",
-"objetivo": "Criar e controlar modais usando JavaScript",
-"conceitos": ["DOM", "Eventos", "CSS Classes"]
-}
-]
+  "lesson": "Manipulação do DOM"
 }
 
-🧠 Arquitetura da solução
+Exemplo de resposta
+{
+  "lesson": "Manipulação do DOM",
+  "suggestions": [
+    {
+      "title": "Lista de tarefas interativa",
+      "description": "Aplicação para adicionar, remover e marcar tarefas usando manipulação do DOM",
+      "skills": ["JavaScript", "DOM"]
+    },
+    {
+      "title": "Filtro de produtos",
+      "description": "Página que filtra itens dinamicamente com base em ações do usuário",
+      "skills": ["JavaScript", "DOM"]
+    }
+  ]
+}
+
+Arquitetura da solução
 
 Node.js + Express
 
 Base curada de projetos por tema/aula
 
-Serviço de busca por palavras-chave
+Regra de negócio desacoplada em services
 
-Retorno padronizado (API-ready)
+Controllers responsáveis apenas pela requisição e resposta
 
-A lógica foi estruturada de forma desacoplada, permitindo fácil evolução.
+Estrutura preparada para integração futura
 
-🔮 Evolução futura
+src/
+ ├─ routes/
+ ├─ controllers/
+ ├─ services/
+ └─ data/
 
-Esta API foi pensada para, no futuro:
+Evolução futura
 
-Integrar diretamente com plataformas educacionais
+Este projeto foi pensado para evoluir sem quebra de contrato, permitindo:
 
-Receber automaticamente o nome da aula
+Integração direta com plataformas educacionais
 
-Utilizar Inteligência Artificial para gerar sugestões dinâmicas de projetos
+Captura automática do nome da aula
 
-Manter o mesmo contrato de resposta (sem quebrar integrações)
+Uso futuro de Inteligência Artificial para gerar sugestões dinâmicas
 
-🛠️ Como executar o projeto
+Manutenção do mesmo formato de resposta da API
 
+Como executar o projeto
 npm install
-npm run dev
+npm start
+
 
 A API será executada em:
 
-http://localhost:3000/sugestoes
+http://localhost:3000
 
-🤝 Contribuição
 
-Este projeto foi criado como uma contribuição educacional para a comunidade, com foco em aprendizado prático e colaborativo.
+Health check:
 
+GET /health
+
+Contribuição
+
+Este projeto foi criado como uma contribuição educacional para a comunidade, com foco em aprendizado prático, colaboração e compartilhamento de conhecimento.
+
+Autor:
 Diego Colombari Rapichan
