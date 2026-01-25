@@ -1,16 +1,18 @@
 Learning Project Suggester API
 
-API que sugere projetos práticos com base no conteúdo da aula, ajudando alunos a fixarem o aprendizado e a criarem projetos reais para portfólio (GitHub).
+API que sugere projetos práticos com base no conteúdo de uma aula, ajudando alunos a fixarem o aprendizado e transformarem teoria em projetos reais para portfólio (GitHub).
 
 Objetivo
 
-Um problema comum durante o aprendizado é concluir uma aula, entender o conteúdo, mas não saber como praticá-lo de forma concreta.
+Durante os estudos, é comum entender o conteúdo da aula, mas ficar com a dúvida:
 
-Esta API resolve esse problema sugerindo ideias de projetos práticos alinhados ao tema da aula, incentivando a aplicação imediata do conhecimento e a construção de portfólio.
+“Terminei a aula. O que eu posso construir agora para praticar isso de verdade?”
+
+Esta API foi criada para resolver esse problema, sugerindo ideias de projetos práticos alinhadas ao tema da aula, incentivando a aplicação imediata do conhecimento e a construção de portfólio.
 
 Como funciona
 
-A API recebe o nome da aula e retorna sugestões de projetos relacionadas ao conteúdo informado, com foco em:
+A API recebe informações sobre a aula (atualmente, o nome da aula informado manualmente) e retorna sugestões de projetos relacionadas ao conteúdo, com foco em:
 
 Fixação do aprendizado
 
@@ -18,27 +20,24 @@ Aplicação prática do conteúdo
 
 Criação de projetos reais para portfólio
 
-Exemplo de requisição
-
-POST /suggest-projects
-
+Exemplo de entrada
 {
-  "lesson": "Manipulação do DOM"
+  "aula": "Introdução ao DOM"
 }
 
-Exemplo de resposta
+Exemplo de saída
 {
-  "lesson": "Manipulação do DOM",
-  "suggestions": [
+  "aula": "Introdução ao DOM",
+  "sugestoes": [
     {
-      "title": "Lista de tarefas interativa",
-      "description": "Aplicação para adicionar, remover e marcar tarefas usando manipulação do DOM",
-      "skills": ["JavaScript", "DOM"]
+      "nome": "Lista de Tarefas",
+      "objetivo": "Manipular elementos dinamicamente no DOM",
+      "conceitos": ["querySelector", "addEventListener", "classList"]
     },
     {
-      "title": "Filtro de produtos",
-      "description": "Página que filtra itens dinamicamente com base em ações do usuário",
-      "skills": ["JavaScript", "DOM"]
+      "nome": "Modal Interativo",
+      "objetivo": "Criar e controlar modais usando JavaScript",
+      "conceitos": ["DOM", "Eventos", "CSS Classes"]
     }
   ]
 }
@@ -47,49 +46,41 @@ Arquitetura da solução
 
 Node.js + Express
 
-Base curada de projetos por tema/aula
+Base de projetos organizada por tema/aula
 
-Regra de negócio desacoplada em services
+Serviço de busca por palavras-chave
 
-Controllers responsáveis apenas pela requisição e resposta
+Retorno padronizado, pronto para integração via API
 
-Estrutura preparada para integração futura
+A lógica foi estruturada de forma desacoplada, permitindo fácil manutenção e evolução.
 
-src/
- ├─ routes/
- ├─ controllers/
- ├─ services/
- └─ data/
+Evoluções futuras
 
-Evolução futura
+Este projeto foi pensado para evoluir sem quebrar integrações existentes. Algumas possibilidades:
 
-Este projeto foi pensado para evoluir sem quebra de contrato, permitindo:
+Integração direta com plataformas educacionais, consumindo automaticamente o nome da aula
 
-Integração direta com plataformas educacionais
+Uso de Inteligência Artificial para gerar sugestões dinâmicas de projetos com base no conteúdo estudado
 
-Captura automática do nome da aula
+Personalização de sugestões conforme nível do aluno ou trilha de aprendizado
 
-Uso futuro de Inteligência Artificial para gerar sugestões dinâmicas
-
-Manutenção do mesmo formato de resposta da API
+Manutenção do mesmo contrato de resposta da API, garantindo compatibilidade
 
 Como executar o projeto
 npm install
-npm start
+npm run dev
 
 
 A API será executada em:
 
-http://localhost:3000
-
-
-Health check:
-
-GET /health
+http://localhost:3000/sugestoes
 
 Contribuição
 
-Este projeto foi criado como uma contribuição educacional para a comunidade, com foco em aprendizado prático, colaboração e compartilhamento de conhecimento.
+Este projeto foi desenvolvido como uma contribuição educacional, com foco em aprendizado prático, organização de estudos e construção de portfólio.
+
+Feedbacks e sugestões são bem-vindos.
 
 Autor:
 Diego Colombari Rapichan
+https://github.com/DiegoRapichan
