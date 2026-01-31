@@ -257,8 +257,8 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 **Diego Colombari Rapichan**
 
 - GitHub: [@DiegoRapichan](https://github.com/DiegoRapichan)
-- LinkedIn: [Diego Rapichan](https://www.linkedin.com/in/diego-rapichan) *(adicione seu link)*
-- Email: *(adicione seu email se desejar)*
+- LinkedIn: [Diego Rapichan](https://www.linkedin.com/in/diego-rapichan) 
+- Email: direrapichan@gmail.com
 
 ---
 
