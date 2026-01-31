@@ -1,5 +1,10 @@
 Learning Project Suggester API
 
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![REST API](https://img.shields.io/badge/REST_API-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+
 API que sugere projetos práticos com base no conteúdo de uma aula, ajudando alunos a fixarem o aprendizado e transformarem teoria em projetos reais para portfólio (GitHub).
 
 Objetivo
